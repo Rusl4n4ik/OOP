@@ -51,8 +51,7 @@ class MyClass3(MyClass1):
 class MyClass4(MyClass1):
     pass
 
-print("Добро пожаловать в интерактивный журнал!")
-
+print("Добро пожаловать в интерактивный журнал!"
 
 
 A1 = MyClass1('class1.txt')
