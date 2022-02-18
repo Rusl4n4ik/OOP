@@ -18,9 +18,11 @@
 # print(B.max_speed, B.doors, B.colour, B.horse_power)
 # print(C.max_speed, C.doors, C.colour, C.horse_power)
 
+dict = {'MyClass1': 'class1.txt','MyClass2': 'class2.txt','MyClass3': 'class3.txt','MyClass4': 'class4.txt'}
+
 class MyClass1:
     def __init__(self, filename):
-        self.my_class = open(filename, 'w')
+        self.my_class = open(filename, 'a')
         self.my_class_name = filename
 
     def add(self, fname, lname):
@@ -39,47 +41,103 @@ class MyClass1:
         self.my_class = open(self.my_class_name, 'r')
         lines = self.my_class.readlines()
         print(len(lines))
-    def read(self):
-        self.my_class = open(self.my_class_name, 'r')
-        read = self.my_class.readlines()
-        print(read)
 
-class MyClass2(MyClass1):
-    pass
-class MyClass3(MyClass1):
-    pass
-class MyClass4(MyClass1):
-    pass
-
-print("Добро пожаловать в интерактивный журнал!"
+    def read_journal(self):
+        print(open(self.my_class_name, 'r').read())
 
 
-A1 = MyClass1('class1.txt')
-A1.add("Ruslan","Sharipov ")
-A1.add("Yusuf", "Zayniev")
-# A1.delete("Yusuf", "Zayniev")
-# A1.lines()
-A1.read()
+def main():
+    print("Добро пожаловать епта")
+    op = input("Выберите класс: ")
+    A = MyClass1(dict[op])
+    while 1:
+        print(" 1.Добавить ученика\n",
+         "2.Удалить ученика\n",
+         "3.Просмотреть журнал\n","4.Изменить класс\n")
+        op1 = int(input("Выберите операцию: "))
+        if op1 == 1:
+            A = MyClass1(dict[op])
+            fname = input("Введите имя: ")
+            lname = input("Введите фамилию: ")
+            A.add(fname, lname)
+        if op1 == 2:
+            A = MyClass1(dict[op])
+            fname = input("Введите имя: ")
+            lname = input("Введите фамилию: ")
+            A.delete(fname, lname)
+        if op1 == 3:
+            A = MyClass1(dict[op])
+            A.read_journal()
+        if op1 == 4:
+            op = input("Выберите класс: ")
+            A = MyClass1(dict[op])
+            while 1:
+                print(" 1.Добавить ученика\n",
+                      "2.Удалить ученика\n",
+                      "3.Просмотреть журнал\n", "4.Изменить класс\n")
+                op1 = int(input("Выберите операцию: "))
+                if op1 == 1:
+                    A = MyClass1(dict[op])
+                    fname = input("Введите имя: ")
+                    lname = input("Введите фамилию: ")
+                    A.add(fname, lname)
+                if op1 == 2:
+                    A = MyClass1(dict[op])
+                    fname = input("Введите имя: ")
+                    lname = input("Введите фамилию: ")
+                    A.delete(fname, lname)
+                if op1 == 3:
+                    A = MyClass1(dict[op])
+                    A.read_journal()
 
-A2 = MyClass1('class2.txt')
-A2.add("Ruslan","Pepsi ")
-A2.add("Yusuf", "Cola")
-# A2.delete("Yusuf", "Zayniev")
-# A2.lines()
-A2.read()
 
-A3 = MyClass1('class3.txt')
-A3.add("Lionel","Pepsi ")
-A3.add("Neymar", "Junior ")
-# A3.delete()
-# A3.lines()
-A3.read()
 
-A4 = MyClass1('class4.txt')
-A4.add("Ruslan","Zayniev")
-A4.add("Yusuf", "Sharipov")
-# A4.delete("Yusuf", "Zayniev")
-# A4.lines()
-A4.read()
 
+while 1:
+    main()
+
+        # elif op1 == "MyClass2":
+        #     A2 = MyClass1('class2.txt')
+        #     fname = input("Введите имя: ")
+        #     lname = input("Введите фамилию: ")
+        #     A2.add(fname, lname)
+        # elif op1 == "MyClass3":
+        #     A3 = MyClass1('class3.txt')
+        #     fname = input("Введите имя: ")
+        #     lname = input("Введите фамилию: ")
+        #     A3.add(fname, lname)
+        # elif op1 == "MyClass4":
+        #     A4 = MyClass1('class4.txt')
+        #     fname = input("Введите имя: ")
+        #     lname = input("Введите фамилию: ")
+        #     A4.add(fname, lname)
+
+# if op == 1:
+#
+    # A1.delete("Yusuf", "Zayniev")
+    # A1.lines()
+    # A1.read()
+
+    # A2 = MyClass1('class2.txt')
+    # A2.add("Ruslan","Pepsi ")
+    # A2.add("Yusuf", "Cola")
+    # # A2.delete("Yusuf", "Zayniev")
+    # # A2.lines()
+    # A2.read()
+    #
+    # A3 = MyClass1('class3.txt')
+    # A3.add("Lionel","Pepsi ")
+    # A3.add("Neymar", "Junior ")
+    # # A3.delete()
+    # # A3.lines()
+    # A3.read()
+    #
+    #
+    #
+    # A4 = MyClass1('class4.txt')
+    # A4.add("Ruslan","Zayniev")
+    # A4.add("Yusuf", "Sharipov")
+    # # A4.delete("Yusuf", "Zayniev")
+    # # A4.lines()
+    # A4.read()
 
